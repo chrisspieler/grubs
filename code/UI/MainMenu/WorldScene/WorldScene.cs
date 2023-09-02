@@ -55,13 +55,13 @@ public class WorldScene : Panel
 			var sand = ResourceLibrary.Get<Sdf2DLayer>( "materials/sdf/sand_menu.sdflayer" );
 			var rock = ResourceLibrary.Get<Sdf2DLayer>( "materials/sdf/rock_menu.sdflayer" );
 
-			var mapSdfTexture = await Texture.LoadAsync( FileSystem.Mounted, "textures/texturelevels/" + GrubsConfig.WorldTerrainTexture.ToString() + ".png" );
+			var mapSdfTexture = await Texture.LoadAsync( FileSystem.Mounted, "textures/texturelevels/" + GrubsConfig.TerrainTexture.Grubs + ".png" );
 			var mapSdf = new TextureSdf( mapSdfTexture, 10, mapSdfTexture.Width * 2f, pivot: 0f );
 			var transformedSdf = mapSdf.Transform( new Vector2( -GrubsConfig.TerrainLength / 2f, 0 ) );
 
 			await _sdfWorld.AddAsync( transformedSdf, sand );
 
-			mapSdfTexture = await Texture.LoadAsync( FileSystem.Mounted, "textures/texturelevels/" + GrubsConfig.WorldTerrainTexture.ToString() + "_back.png" );
+			mapSdfTexture = await Texture.LoadAsync( FileSystem.Mounted, "textures/texturelevels/" + GrubsConfig.TerrainTexture.Grubs + "_back.png" );
 			mapSdf = new TextureSdf( mapSdfTexture, 10, mapSdfTexture.Width * 2f, pivot: 0f );
 			transformedSdf = mapSdf.Transform( new Vector2( -GrubsConfig.TerrainLength / 2f, 0 ) );
 
@@ -127,7 +127,7 @@ public class WorldScene : Panel
 
 		if ( ShowLogo && _sdfWorld is null )
 		{
-			var sdfWorldPos = TargetPosition + Vector3.Up * 32f;
+			var sdfWorldPos = TargetPosition + Vector3.Up * 8f;
 
 			_sdfWorld = new Sdf2DWorld( _renderScene.World )
 			{
@@ -139,12 +139,24 @@ public class WorldScene : Panel
 			_ = SetupWorld();
 		}
 
+		if ( !ShowLogo && _sdfWorld is not null )
+		{
+			_sdfWorld.ClearAsync();
+			_sdfWorld = null;
+		}
+
 		if ( HasGrubPreview && _grubPreview is null )
 		{
 			_grubPreview = new GrubPreview( _renderScene.World );
 			_grubPreview.Grub.Position = _grubDefaultPosition;
 			_grubPreview.Grub.Rotation = Rotation.From( 0, -135, 0 );
 			AddChild( _grubPreview );
+		}
+
+		if ( !HasGrubPreview && _grubPreview is not null )
+		{
+			_grubPreview.Delete();
+			_grubPreview = null;
 		}
 
 		_sdfWorld?.Update();

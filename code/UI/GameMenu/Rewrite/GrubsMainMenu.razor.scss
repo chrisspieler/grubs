@@ -1,0 +1,55 @@
+﻿GrubsMainMenu {
+    width: 100%;
+    height: 100%;
+    font-family: "Londrina Solid";
+    
+    .cover {
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+    }
+
+    .info-start {
+        align-items: center;
+        gap: 16px;
+        position: absolute;
+        bottom: 128px;
+        font-size: 64px;
+        letter-spacing: 1px;
+        text-shadow: 4px 4px black;
+        animation-duration: 4s;
+        animation-name: wiggle;
+        animation-iteration-count: infinite;
+        
+        > inputglyph {
+            top: 32px;
+            max-width: 128px;
+            max-height: 128px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-0.5deg);
+    }
+
+    50% {
+        transform: rotate(0.5deg);
+    }
+
+    75% {
+        transform: rotate(-0.5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}

@@ -1,0 +1,68 @@
+﻿@using Grubs.UI;
+@using Sandbox;
+@using Sandbox.UI;
+@using InputAction=Grubs.InputAction
+
+@namespace Grubs.MainMenu
+@inherits Sandbox.UI.Panel;
+@implements Sandbox.Menu.IGameMenuPanel
+
+@attribute [StyleSheet]
+
+<root>
+    <worldscene ShowLogo=@_showLogo ShowGrub=@_showGrub @ref="_worldScene"></worldscene>
+    @if ( !_hasStarted )
+    {
+        <div class="cover">
+            <div class="info-start">
+                <label>Press</label> 
+                <InputGlyph button=@InputAction.Jump size="medium" /> 
+                <label>to Start...</label>
+            </div>
+        </div>
+    }
+</root>
+
+@code {
+    WorldScene _worldScene;
+    bool _showLogo = true;
+    bool _showGrub = false;
+    bool _hasStarted = false;
+    bool _isDrawing;
+    Vector2 _prevPos;
+    TimeSince _prevTime;
+
+    protected override void OnMouseDown( MousePanelEvent e )
+    {
+        _isDrawing = true;
+        _prevPos = MousePosition;
+        _prevTime = 0f;
+
+        _worldScene.DrawOnTerrain( _prevPos, MousePosition );
+    }
+
+    protected override void OnMouseUp( MousePanelEvent e )
+    {
+        _isDrawing = false;
+    }
+
+    protected override void OnMouseMove( MousePanelEvent e )
+    {
+        if ( _isDrawing && (MousePosition - _prevPos).Length > 1f && _prevTime > 1f / 60f )
+        {
+            _worldScene.DrawOnTerrain( _prevPos, MousePosition );
+            _prevPos = MousePosition;
+            _prevTime = 0f;
+        }
+    }
+
+    public override void Tick()
+    {
+        if ( Input.Pressed( InputAction.Jump ) )
+        {
+            _hasStarted = true;
+            _showLogo = false;
+            _showGrub = true;
+        }
+    }
+}
