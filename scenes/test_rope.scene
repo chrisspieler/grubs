@@ -29,7 +29,8 @@
     {
       "Id": "39ff738e-5b3d-4abd-b815-3ed9d673e10a",
       "Name": "ninjarope",
-      "Rotation": "-0.5,-0.5,-0.5,0.5",
+      "Position": "15.56553,0.000001360782,0",
+      "Rotation": "-0,0,1,-0.00000004371139",
       "Enabled": true,
       "Components": [
         {

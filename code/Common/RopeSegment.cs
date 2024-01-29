@@ -14,24 +14,11 @@ public sealed class RopeSegment : Component
 		}
 	}
 	private GameObject? _nextPoint;
-	[Property, Range( -10f, 10f )] public float DesiredSlackness 
-	{ 
-		get => _desiredSlackness;
-		set
-		{
-			_desiredSlackness = value;
-		}
-	}
-	private float _desiredSlackness = -3f;
-	[Property] public bool TightenOnStart { get; set; } = true;
-	[Property] public float TightenDuration { get; set; } = 0.7f;
 	[Property] public float RopeLength { get; set; }
 	[Property] public float Tension { get; set; } = 1f;
-	private TimeUntil _finishedTightening;
 
 	protected override void OnStart()
 	{
-		_finishedTightening = TightenDuration;
 		RopeLength = GetDistanceToNextPoint();
 		InitializeParticleSystem();
 	}
@@ -55,7 +42,7 @@ public sealed class RopeSegment : Component
 			new ParticleControlPoint()
 			{
 				Value = ParticleControlPoint.ControlPointValueInput.Float,
-				FloatValue = DesiredSlackness,
+				FloatValue = 0f,
 				StringCP = "2"
 			}
 		};
@@ -97,20 +84,7 @@ public sealed class RopeSegment : Component
 
 	private float GetEffectiveSlackness()
 	{
-		// Make the rope gradually tighten on start.
-		var untightenedAmount = TightenOnStart
-			? 1 - _finishedTightening.Fraction
-			: 0f;
-		// Make rope slacken as the distance is closed from source to target.
-		var slackness = GetDistanceToNextPoint() / RopeLength;
-		slackness *= Tension;
-		if ( RopeTester.RopeDebug )
-		{
-			Gizmo.Draw.Color = Color.Yellow;
-			Gizmo.Draw.Text( $"s:{slackness}, u:{untightenedAmount}", new Transform( Transform.Position ), "Consolas" );
-		}
-		slackness += untightenedAmount;
-		return (slackness - 0.5f) * DesiredSlackness * 2f;
+		return -5f * Tension;
 	}
 
 	private void AdjustSlack( float amount )

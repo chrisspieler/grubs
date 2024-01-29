@@ -18,7 +18,6 @@ public sealed class RopeTester : Component
 		Gun ??= GameObject;
 
 		var mousePos = GetMousePosition();
-		UpdateGunRotation( mousePos );
 		UpdateGizmos( mousePos );
 		UpdateGunInput( mousePos );
 		UpdateHook();
@@ -32,19 +31,6 @@ public sealed class RopeTester : Component
 		var mousePos = screenRay.Project( camera.Transform.Position.Distance( Vector3.Zero ) );
 		mousePos.x = 0f;
 		return mousePos;
-	}
-
-	private void UpdateGunRotation( Vector3 mousePos )
-	{
-		var mouseDir = (mousePos - Transform.Position).Normal;
-		var nextPoint = Rope.Segments.FirstOrDefault()?.NextPoint;
-		if ( nextPoint is not null )
-		{
-			mouseDir = (nextPoint.Transform.Position - Transform.Position).Normal;
-		}
-		Gun.Transform.Rotation = Gun.Transform.Rotation
-			.Angles()
-			.WithPitch( mouseDir.EulerAngles.pitch );
 	}
 
 	private void UpdateGizmos( Vector3 mousePos )

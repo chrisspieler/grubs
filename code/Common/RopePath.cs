@@ -49,7 +49,8 @@ public sealed class RopePath : Component
 		var hitDistanceFromNext = tr.EndPosition.Distance( firstSegment.NextPoint.Transform.Position );
 		if ( tr.Hit && hitDistanceFromNext > 2f )
 		{
-			SplitSegment( firstSegment, tr.HitPosition );
+			var offset = -tr.Direction * 0.5f;
+			SplitSegment( firstSegment, tr.HitPosition + offset );
 		}
 	}
 
