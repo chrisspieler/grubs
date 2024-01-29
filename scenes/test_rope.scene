@@ -1,0 +1,566 @@
+{
+  "Id": "864f8def-c75c-4389-abf5-be3836328099",
+  "GameObjects": [
+    {
+      "Id": "4796a008-b86a-4aa3-a524-9bae946b2145",
+      "Name": "Camera",
+      "Position": "-300,0,50",
+      "Tags": "maincamera",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ]
+    },
+    {
+      "Id": "39ff738e-5b3d-4abd-b815-3ed9d673e10a",
+      "Name": "ninjarope",
+      "Rotation": "-0.5,-0.5,-0.5,0.5",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/tools/ninjarope/ninjarope.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ],
+      "Children": [
+        {
+          "Id": "ba9e8485-ea13-4820-a9de-c9fb19c5c620",
+          "Name": "Gun Barrel",
+          "Position": "16.40146,0.00007432538,6.407571",
+          "Rotation": "0,0,0,0.999995",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RopePath",
+              "MinimumFireDistance": 10,
+              "RopeAsset": "particles/rope/slack_rope.vpcf",
+              "RopeSystem": null
+            },
+            {
+              "__type": "RopeTester",
+              "Gun": "39ff738e-5b3d-4abd-b815-3ed9d673e10a",
+              "HookModel": "models/tools/ninjarope/ninjarope_hook.vmdl",
+              "MoveSpeed": 100,
+              "Rope": {
+                "_type": "component",
+                "go": "ba9e8485-ea13-4820-a9de-c9fb19c5c620",
+                "component_type": "RopePath"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "add11d94-957a-4495-9b41-57bbf4a3e91c",
+      "Name": "Sun",
+      "Position": "215.0374,54.22591,42.87046",
+      "Rotation": "-0.08682409,0.4924039,0.1503837,0.8528685",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "DirectionalLight",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0.05882,0.07451,0.08235,1"
+        }
+      ]
+    },
+    {
+      "Id": "b25c62ac-e549-46b2-a620-d5143e70d879",
+      "Name": "Cube",
+      "Position": "0,0,80.1494",
+      "Scale": "0.2,0.2925329,0.4034981",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "56aefd4b-157f-4684-8610-df725c4b77cb",
+      "Name": "Cube (1)",
+      "Position": "0,42.2956,79.56537",
+      "Rotation": "0.258819,0,0,0.9659258",
+      "Scale": "0.2,1.257505,0.2",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "56e1f9f4-f1aa-4c53-8759-28af1e9cd106",
+      "Name": "Cube (2)",
+      "Position": "0,-40.08083,118.0033",
+      "Rotation": "-0.1305262,0,0,0.9914449",
+      "Scale": "0.2,0.2813154,0.9434602",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "8be9732a-8cd8-4364-9f2b-9fdc30919d64",
+      "Name": "Cube (4)",
+      "Position": "0,117.4266,24.1229",
+      "Scale": "0.2,0.2,0.2",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "2af38fa4-759d-4a50-b715-ab148c3801f1",
+      "Name": "Cube (3)",
+      "Position": "0,69.0074,5.883774",
+      "Scale": "0.2,0.2,0.2",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "9e5c9e74-2233-4910-931e-15ddf3b59d98",
+      "Name": "Cube (5)",
+      "Position": "0,34.88326,5.883774",
+      "Scale": "0.2,0.2,0.2",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "231dfece-69fa-4c8a-8773-8c9b8acad619",
+      "Name": "Cube (6)",
+      "Position": "0,-12.04048,5.883774",
+      "Scale": "0.2,0.2,0.2",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "9c475728-5e66-4db6-8fbc-b68de04383f3",
+      "Name": "Cube (7)",
+      "Position": "0,-14.4559,-20.98694",
+      "Scale": "0.2,0.2,0.2",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "b2b0cc60-f41e-43cb-b4fd-85300ba4f6b7",
+      "Name": "Cube (8)",
+      "Position": "0,31.81686,-20.98694",
+      "Scale": "0.2,0.2,0.2",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "24ffb452-baeb-4d2d-bfd3-f248e57d547a",
+      "Name": "Cube (9)",
+      "Position": "0,70.82893,-36.28366",
+      "Scale": "0.2,0.2,0.2",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "76836336-b1f6-481d-80e8-a5aa542a2e96",
+      "Name": "Cube (10)",
+      "Position": "0,34.22548,-60.46262",
+      "Scale": "0.2,0.2,0.2",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "6b14c7d2-1080-4c37-80e9-8bf9e129f5df",
+      "Name": "Cube (11)",
+      "Position": "0,-16.98652,-72.36855",
+      "Scale": "0.2,0.2,0.2",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "0e2d975f-4e82-49dc-ac1f-013628bba7f5",
+      "Name": "Cube (12)",
+      "Position": "0,-49.49818,-53.71403",
+      "Scale": "0.2,0.2,0.2",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "aabf102f-bb32-49a0-86ce-1e0dfd860829",
+      "Name": "Cube (13)",
+      "Position": "0,-55.67661,-7.696346",
+      "Scale": "0.2,0.2,0.2",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "16f988e6-01d6-41a3-80dd-63e5f997fe9b",
+      "Name": "Cube (14)",
+      "Position": "0,94.84792,-62.85155",
+      "Scale": "0.2,0.2,0.2",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "e2261d52-f292-44c7-bebd-14b867b8df65",
+      "Name": "Sphere",
+      "Position": "0,-82.13473,22.52915",
+      "Scale": "0.3,0.3,0.3",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/sphere.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "SphereCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Radius": 32,
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "44a94fea-caea-44ff-a605-c5ff6effb351",
+      "Name": "Sphere (1)",
+      "Position": "0,-134.1878,75.00398",
+      "Rotation": "-0.6087614,0,0,0.7933534",
+      "Scale": "0.6,0.6,0.6",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/sphere.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "SphereCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Radius": 32,
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true
+  },
+  "Title": "test_rope",
+  "Description": "",
+  "__references": []
+}
